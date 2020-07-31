@@ -1,32 +1,30 @@
 // Code DigitalClicker Component Here
 import React from 'react';
 
-class DigitalClicker extends React.Component{
+class DigitalClicker extends React.Component {
+  constructor() {
+    super();
 
-constructor () {
-  super()
+    this.state = {
+      timesClicked: 0,
+    };
+  }
 
-  this.state = {
-       timesClicked: 0,
-     };
-   }
-
-  increaseClick = () => {
-    this.setState({
-      timesClicked: this.state.timesClicked + 1
-    })
+  handleClick = () => {
+    this.setState(prevState => ({
+      timesClicked: prevState.timesClicked+1
+    }))
   }
 
   render() {
     return (
-      <div>
-        <button onClick={this.increaseClick}> {this.state.timesClicked} </button>
-      </div>
-    )
+      <button onClick={this.handleClick}>{this.state.timesClicked}</button>
+    );
   }
 }
 
 export default DigitalClicker;
+
 
 
 //NOTE: Medium article on increasing/decreasing
